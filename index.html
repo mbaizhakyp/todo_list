@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <header>
+      <h1 id="page-title">To Do List</h1>
+    </header>
+    <div id="projectDiv">
+      <div id="projectPlus">
+        <h2>Projects</h2>
+        <button id="addProject">+</button>
+      </div>
+
+      <ul id="projectList">
+        <li class="projectItem">Default</li>
+      </ul>
+    </div>
+    <div id="todoDiv">
+      <div id="pageWindow" class="Default">
+        <div id="projectName">
+          <div id="nameArea">Default</div>
+          <div id="options">
+            <button id="addTodo">+</button>
+            <button id="close">x</button>
+          </div>
+        </div>
+        <div id="ProjectItems"></div>
+      </div>
+    </div>
+    <div id="getTodo">
+      <div id="form">
+        <div id="formTitle">New To Do Item</div>
+        <div id="exit"><div id="exitButton">x</div></div>
+        <div id="formSubmit">Submit</div>
+        <div id="formName">
+          <label for="name">Name:</label
+          ><input type="text" id="name" required />
+        </div>
+        <div id="formDescription">
+          <label for="description">Description:</label
+          ><input type="text" id="description" required />
+        </div>
+        <div id="formDue">
+          <label for="due">Due:</label><input type="date" id="due" required />
+        </div>
+        <div id="formPriority">
+          <label for="">Priority:</label>
+          <div id="priorityOptions">
+            <div>
+              <input
+                type="radio"
+                id="Low"
+                name="priority"
+                value="Low"
+                required
+              />
+              <label for="Low">Low</label><br />
+            </div>
+            <div>
+              <input type="radio" id="High" name="priority" value="High" />
+              <label for="High">High</label><br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
