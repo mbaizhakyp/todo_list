@@ -1,0 +1,233 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 10fr;
+  grid-template-columns: 1fr 3fr;
+  font-family: lato, sans-serif;
+}
+
+header {
+  grid-column: 1/3;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  padding-left: 2em;
+}
+
+#page-title {
+  margin: 0;
+  font-size: 48px;
+  color: white;
+}
+
+#projectDiv {
+  background-color: rgb(246, 246, 246);
+  font-weight: 300;
+  padding-right: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+}
+
+ul {
+  list-style: none; /* removes bullets */
+  margin: 0; /* removes default margin */
+  padding: 0; /* removes default padding */
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  font-size: 24px;
+  margin-left: 4em;
+  margin-top: 1em;
+  display: inline-block; /* Shrink to content width */
+  border-bottom: 1px solid #ccc;
+  padding: 0.5em 0;
+}
+li:last-child {
+  border-bottom: none;
+}
+
+#projectPlus {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+#addProject {
+  font-size: 80px;
+  font-weight: 100;
+  color: white;
+  background-color: pink;
+  margin: 10px 0px 20px 10px;
+  padding: 0;
+  border-radius: 20px;
+  border: 0;
+}
+
+#addProject:hover {
+  color: green;
+  background-color: white;
+  cursor: pointer;
+}
+
+li:hover {
+  color: pink;
+  cursor: pointer;
+}
+
+#todoDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pageWindow {
+  width: 90%;
+  height: 90%;
+  background-color: pink;
+  border-radius: 5em;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  display: grid;
+  grid-template-rows: 1fr 11fr;
+}
+
+#pageWindow.hidden {
+  display: none;
+}
+
+#nameArea {
+  background-color: pink;
+  font-size: 48px;
+  padding-left: 0.5em;
+  font-weight: 400;
+  /* border-top: 1px solid black; */
+  text-align: center;
+  color: white;
+}
+#projectName {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  background-color: white;
+}
+#addTodo {
+  background-color: pink;
+  height: 100%;
+  padding: 0 1em;
+  border: 0;
+  font-size: 36px;
+  color: white;
+  width: 100%;
+}
+#addTodo:hover {
+  color: pink;
+  background-color: white;
+}
+#close {
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+  padding: 0 1em;
+  border: 0;
+  font-size: 36px;
+  color: white;
+}
+#close:hover {
+  color: pink;
+  background-color: white;
+}
+#options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+#getTodo {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* font-size: 5rem; */
+  flex-direction: column;
+}
+
+#getTodo.show {
+  display: flex;
+}
+
+#form {
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 1fr 1fr 4fr 1fr 1fr;
+}
+
+#formSubmit {
+  grid-row: 2 / 6;
+  grid-column: 2/3;
+  background-color: white;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+#formSubmit:hover {
+  color: white;
+  background-color: green;
+}
+
+#formTitle {
+  color: black;
+  background-color: pink;
+  font-size: 48px;
+  font-weight: 300;
+  padding-left: 1em;
+  /* grid-column: 1/3; */
+}
+
+#formName,
+#formDue,
+#formDescription,
+#formPriority {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  color: black;
+  padding: 20px;
+  font-size: 32px;
+}
+#priorityOptions {
+  display: flex;
+  margin-left: 2em;
+  gap: 1em;
+}
+#exit {
+  background-color: pink;
+  color: black;
+  font-size: 48px;
+  display: flex;
+  justify-content: right;
+  padding-right: 20px;
+}
+#exitButton:hover {
+  color: white;
+}
+
+.todo-item {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 16px;
+  background-color: white;
+}

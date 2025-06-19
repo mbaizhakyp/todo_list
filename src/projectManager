@@ -1,0 +1,82 @@
+import { createProject } from "./project";
+import { displayAllTodos } from "./getTodo";
+
+// Load from localStorage if available
+function loadProjects() {
+  const stored = localStorage.getItem("todo-projects");
+  if (!stored) return [createProject("Default")];
+
+  const parsed = JSON.parse(stored);
+  return parsed.map((p) => {
+    const project = createProject(p.name);
+    project.todos = p.todos;
+    return project;
+  });
+}
+
+function saveProjects(projects) {
+  localStorage.setItem("todo-projects", JSON.stringify(projects));
+}
+
+export function projectManager() {
+  const projects = loadProjects();
+
+  return {
+    addProject(projectName) {
+      const exists = projects.some((p) => p.name === projectName);
+      if (exists) {
+        alert(`Project \"${projectName}\" already exists.`);
+        return;
+      }
+
+      const projectItem = document.createElement("li");
+      const project = createProject(projectName);
+      projects.push(project);
+      saveProjects(projects);
+
+      projectItem.textContent = project.name;
+      projectItem.classList.add("projectItem");
+      document.querySelector("#projectList").appendChild(projectItem);
+      projectItem.click();
+    },
+
+    displayProject() {
+      const pageWindow = document.getElementById("pageWindow");
+      const projectList = document.getElementById("projectList");
+
+      projectList.addEventListener("click", (event) => {
+        if (event.target && event.target.matches("li.projectItem")) {
+          const selectedName = event.target.textContent;
+          const safeName = selectedName.replace(/\W/g, "_");
+
+          if (pageWindow.classList.contains(safeName)) {
+            pageWindow.classList.toggle("hidden");
+          } else {
+            pageWindow.className = "";
+            pageWindow.classList.add(safeName);
+            document.querySelector("#nameArea").textContent = selectedName;
+          }
+
+          const selectedProject = projects.find((p) => p.name === selectedName);
+          if (selectedProject) {
+            displayAllTodos(selectedProject);
+          }
+        }
+      });
+
+      // Load existing projects into UI
+      projects.forEach((project) => {
+        if (project.name !== "Default") {
+          const item = document.createElement("li");
+          item.textContent = project.name;
+          item.classList.add("projectItem");
+          document.querySelector("#projectList").appendChild(item);
+        }
+      });
+    },
+
+    projects,
+
+    save: () => saveProjects(projects),
+  };
+}
